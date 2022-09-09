@@ -6,10 +6,11 @@ public class redCircle : MonoBehaviour
 {
     GameObject myEnemySpawner;
     SpriteRenderer mySpriteRenderer;
+    GameObject myGameManager;
     // Start is called before the first frame update
     void Start()
     {
-
+        myGameManager = GameObject.Find("GameManager");
         myEnemySpawner = GameObject.Find("EnemySpawner");
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         Invoke("DestroyCircle", myEnemySpawner.GetComponent<EnemySpawner>().timeGap);
@@ -21,6 +22,8 @@ public class redCircle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             Debug.Log("right");
+            myGameManager.GetComponent<GameManager>().score++;
+            myEnemySpawner.GetComponent<EnemySpawner>().timeGap -= 0.02f;
             Destroy(gameObject);
         }
 

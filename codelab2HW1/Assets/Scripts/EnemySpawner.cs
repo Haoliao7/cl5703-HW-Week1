@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Spawn", timeGap, timeGap);
+        Invoke("Spawn", timeGap);
     }
 
     // Update is called once per frame
@@ -24,12 +24,12 @@ public class EnemySpawner : MonoBehaviour
     void Spawn()
     {
         num = Random.Range(0, 4);// 0,1,2,3  (inclusive,not inclusive)
-
         GameObject enemy = Instantiate(circles[num]);
         enemy.transform.position = new Vector3(Random.Range(-8.3f,8.3f), 
                                                                        Random.Range(4.5f,-4.5f), 
                                                                        transform.position.z);
-        
+        Invoke("Spawn", timeGap);
+
     }
 
 
