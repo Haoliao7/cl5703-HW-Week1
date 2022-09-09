@@ -27,14 +27,16 @@ public class GameManager : MonoBehaviour
         {
             gameOverText.SetActive(true);
             enemySpawner.SetActive(false);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(0); // load menu scene
+            }
+
         }
 
     }
 
-    public void Restart()
-    {
-        SceneManager.LoadScene(1);
-    }
 
 
 }
