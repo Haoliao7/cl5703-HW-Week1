@@ -7,6 +7,7 @@ public class greenCiclre : MonoBehaviour
     GameObject myEnemySpawner;
     SpriteRenderer mySpriteRenderer;
     GameObject myGameManager;
+    public GameObject coinSoundPlayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class greenCiclre : MonoBehaviour
             Debug.Log("up");
             myGameManager.GetComponent<GameManager>().score++;
             myEnemySpawner.GetComponent<EnemySpawner>().timeGap -= 0.02f;
+            Instantiate(coinSoundPlayer);
             Destroy(gameObject);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.DownArrow))
