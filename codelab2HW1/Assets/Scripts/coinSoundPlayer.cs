@@ -7,7 +7,7 @@ public class coinSoundPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("DestroyThis", 0.5f);
+        Invoke("DestroyThis", 0.5f); // destroy it after 0.5sec
     }
 
     // Update is called once per frame

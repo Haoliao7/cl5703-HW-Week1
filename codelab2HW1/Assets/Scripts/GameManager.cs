@@ -21,16 +21,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score : " + score.ToString();
+        scoreText.text = "Score : " + score.ToString(); // display score on screen
 
-        if (gameOver)
+        if (gameOver) // if the game is over
         {
-            gameOverText.SetActive(true);
-            enemySpawner.SetActive(false);
+            gameOverText.SetActive(true);//display "Game over"
+            enemySpawner.SetActive(false); // stop the spawner
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene(0); // load menu scene
+                SceneManager.LoadScene(0); // load menu scene if pressing space
             }
 
         }

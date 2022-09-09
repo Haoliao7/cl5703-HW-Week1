@@ -23,15 +23,15 @@ public class yellowCircle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             Debug.Log("left");
-            myGameManager.GetComponent<GameManager>().score++;
-            myEnemySpawner.GetComponent<EnemySpawner>().timeGap -= 0.02f;
-            Instantiate(coinSoundPlayer);
-            Destroy(gameObject);
+            myGameManager.GetComponent<GameManager>().score++;//add score
+            myEnemySpawner.GetComponent<EnemySpawner>().timeGap -= 0.02f;//make the game faster
+            Instantiate(coinSoundPlayer);//play coin sound
+            Destroy(gameObject);//destroy it
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
         {
 
-            myGameManager.GetComponent<GameManager>().gameOver = true;
+            myGameManager.GetComponent<GameManager>().gameOver = true;//gameover if press the wrong buttons
             Destroy(gameObject);
 
 
@@ -41,7 +41,7 @@ public class yellowCircle : MonoBehaviour
 
     private void DestroyCircle()
     {
-        myGameManager.GetComponent<GameManager>().gameOver = true;
+        myGameManager.GetComponent<GameManager>().gameOver = true;//game over it it's too late
         Destroy(gameObject);
     }
 }

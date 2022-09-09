@@ -26,11 +26,11 @@ public class EnemySpawner : MonoBehaviour
         if (!myManager.gameOver)
         {
             num = Random.Range(0, 4);// 0,1,2,3  (inclusive,not inclusive)
-            GameObject enemy = Instantiate(circles[num]);
-            enemy.transform.position = new Vector3(Random.Range(-8.3f, 8.3f),
+            GameObject enemy = Instantiate(circles[num]); // Instantiate new circle
+            enemy.transform.position = new Vector3(Random.Range(-8.3f, 8.3f), // randomize its position
                                                                            Random.Range(4.5f, -4.5f),
                                                                            transform.position.z);
-            Invoke("Spawn", timeGap);
+            Invoke("Spawn", timeGap); // keep spawning
         }
 
        
