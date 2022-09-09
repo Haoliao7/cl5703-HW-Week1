@@ -26,11 +26,18 @@ public class redCircle : MonoBehaviour
             myEnemySpawner.GetComponent<EnemySpawner>().timeGap -= 0.02f;
             Destroy(gameObject);
         }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)) {
+
+            myGameManager.GetComponent<GameManager>().gameOver = true;
+            Destroy(gameObject);
+
+        }
 
     }
 
     private void DestroyCircle()
     {
+        myGameManager.GetComponent<GameManager>().gameOver = true;
         Destroy(gameObject);
     }
 }
