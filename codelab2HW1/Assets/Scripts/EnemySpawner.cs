@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-
+    public GameManager myManager;
     public GameObject[] circles;
     public float timeGap;
     public int num;
@@ -23,12 +23,17 @@ public class EnemySpawner : MonoBehaviour
 
     void Spawn()
     {
-        num = Random.Range(0, 4);// 0,1,2,3  (inclusive,not inclusive)
-        GameObject enemy = Instantiate(circles[num]);
-        enemy.transform.position = new Vector3(Random.Range(-8.3f,8.3f), 
-                                                                       Random.Range(4.5f,-4.5f), 
-                                                                       transform.position.z);
-        Invoke("Spawn", timeGap);
+        if (!myManager.gameOver)
+        {
+            num = Random.Range(0, 4);// 0,1,2,3  (inclusive,not inclusive)
+            GameObject enemy = Instantiate(circles[num]);
+            enemy.transform.position = new Vector3(Random.Range(-8.3f, 8.3f),
+                                                                           Random.Range(4.5f, -4.5f),
+                                                                           transform.position.z);
+            Invoke("Spawn", timeGap);
+        }
+
+       
 
     }
 
